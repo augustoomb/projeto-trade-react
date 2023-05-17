@@ -1,6 +1,12 @@
+import SelectorArea from '../components/SelectorArea';
+import Title from '../components/Title';
+
 function DataFilter() {
   return (
-    <div>DataFilter</div>
+    <div>
+      <Title text="Tela de filtros" />
+      <SelectorArea text="Escolha um país" />
+    </div>
   );
 }
 
