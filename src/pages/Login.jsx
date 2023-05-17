@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../services/apiSports';
+import { reqApiSports } from '../services/apiSports';
 import Title from '../components/Title';
 import Button from '../components/Button';
 import SpanErrors from '../components/SpanErrors';
@@ -15,8 +15,10 @@ function Login() {
     localStorage.setItem('token', JSON.stringify(tokenToLocalStorage));
   };
 
+  const LOGIN_ENDPOINT = 'status';
+
   const login = async () => {
-    const responseAuth = await auth(token);
+    const responseAuth = await reqApiSports(LOGIN_ENDPOINT, token);
 
     if (Object.keys(responseAuth.data?.errors).length > 0 || responseAuth.error) {
       setErrors(responseAuth.data.errors);
