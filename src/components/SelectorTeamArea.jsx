@@ -2,11 +2,15 @@ import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 function SelectorTeamArea(props) {
-  const { dataArray, text } = props;
+  const { dataArray, text, setSelectedTeamId } = props;
 
   const mountOptions = () => dataArray.map((item) => (
     { value: item.team.id, label: item.team.name }
   ));
+
+  const changeTeamId = (event) => {
+    setSelectedTeamId(event.value);
+  };
 
   return (
     <>
@@ -14,6 +18,7 @@ function SelectorTeamArea(props) {
       <Select
         isDisabled={ dataArray.length === 0 }
         options={ mountOptions() }
+        onChange={ changeTeamId }
       />
     </>
   );
@@ -25,6 +30,7 @@ SelectorTeamArea.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   dataArray: PropTypes.array.isRequired,
   text: PropTypes.string.isRequired,
+  setSelectedTeamId: PropTypes.func.isRequired,
 };
 
 // Fonte: https://react-select.com/home
