@@ -8,7 +8,7 @@ import getTokenInLocalStorage from '../utils/localStorage';
 import SelectorSeasonArea from '../components/SelectorSeasonArea';
 import SelectorLeagueArea from '../components/SelectorLeagueArea';
 import SelectorTeamArea from '../components/SelectorTeamArea';
-import { setTeamId } from '../redux/slices/team';
+import { setSelectedTeam } from '../redux/slices/team';
 import styles from '../styles/DataFilter.module.css';
 import img from '../images/background.jpg';
 
@@ -78,7 +78,7 @@ function DataFilter() {
 
   useEffect(() => {
     if (selectedTeamId !== '') {
-      dispatch(setTeamId({ selectedTeamId }));
+      dispatch(setSelectedTeam({ selectedTeamId, selectedSeasonYear }));
       navigate({ pathname: '/teamdata' });
     }
   }, [selectedTeamId]);
