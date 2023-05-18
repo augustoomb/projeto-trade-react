@@ -1,9 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { reqApiSports } from '../services/apiSports';
-import Title from '../components/Title';
-import Button from '../components/Button';
-import SpanErrors from '../components/SpanErrors';
+// import Title from '../components/Title';
+// import Button from '../components/Button';
+// import SpanErrors from '../components/SpanErrors';
+import styles from '../styles/Login.module.css';
+import LoginLeftBlock from '../components/LoginLeftBlock';
+import LoginRightBlock from '../components/LoginRightBlock';
+// import backgroundLeft from '../images/background-left-block.png';
 
 function Login() {
   const [token, setToken] = useState('');
@@ -34,21 +38,36 @@ function Login() {
   };
 
   return (
-    <div>
-      <Title text="Login" />
+    <section className={ styles.sectionMain }>
+      <LoginLeftBlock />
+      {/* <div className={ styles.rightBlock }>
+        <Title text="Login" />
 
-      <input
-        placeholder="Digite sua key"
-        type="text"
+        <input
+          placeholder="Digite sua key"
+          type="text"
+          value={ token }
+          onChange={ ({ target }) => onChangeInput(target.value) }
+        />
+
+        <Button text="Login" onClick={ login } />
+
+        <LoginRightBlock
+          value={ token }
+          onChange={ ({ target }) => onChangeInput(target.value) }
+          onClick={ login }
+        />
+
+        <SpanErrors text={ errors } />
+      </div> */}
+      <LoginRightBlock
         value={ token }
         onChange={ ({ target }) => onChangeInput(target.value) }
+        onClick={ login }
+        errors={ errors }
       />
 
-      <Button text="Login" onClick={ login } />
-
-      <SpanErrors text={ errors } />
-
-    </div>
+    </section>
   );
 }
 
