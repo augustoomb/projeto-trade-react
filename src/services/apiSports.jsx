@@ -1,16 +1,7 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios';
 
-// const reqApiSports = async (endpoint, token, param = false) => {
 const reqApiSports = async (endpoint, token) => {
-  // const url = () => {
-  //   if (!param) {
-  //     return `https://v3.football.api-sports.io/${endpoint}`;
-  //   }
-  //   if (typeof param === 'string') {
-  //     return `https://v3.football.api-sports.io/${endpoint}?country=${param}`;
-  //   }
-  //   return `https://v3.football.api-sports.io/${endpoint}?league=${param.selectedLeagueId}&season=${param.selectedSeasonYear}`;
-  // };
   try {
     const response = await axios({
       method: 'GET',
@@ -23,6 +14,7 @@ const reqApiSports = async (endpoint, token) => {
       },
     });
     return (response);
+    // console.log('API desativada');
   } catch (error) {
     return ({ error });
   }
