@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
+
 function TeamData() {
+  const selector = useSelector(({ teamId }) => (teamId));
+
   return (
-    <div>TeamData</div>
+    <div>{ selector }</div>
   );
 }
 
