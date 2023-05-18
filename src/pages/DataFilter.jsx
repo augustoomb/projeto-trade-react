@@ -9,6 +9,8 @@ import SelectorSeasonArea from '../components/SelectorSeasonArea';
 import SelectorLeagueArea from '../components/SelectorLeagueArea';
 import SelectorTeamArea from '../components/SelectorTeamArea';
 import { setTeamId } from '../redux/slices/team';
+import styles from '../styles/DataFilter.module.css';
+import img from '../images/background.jpg';
 
 function DataFilter() {
   const [countries, setCountries] = useState([]);
@@ -62,12 +64,6 @@ function DataFilter() {
     }
   };
 
-  // const requestInfoTeam = async () => {
-  //   const token = getTokenInLocalStorage();
-  //   const dataInfoTeams = await reqApiSports(INFO_TEAMS_ENDPOINT, JSON.parse(token));
-  //   console.log(dataInfoTeams);
-  // };
-
   useEffect(() => {
     if (selectedCountryName !== '') {
       requestLeagues();
@@ -93,7 +89,7 @@ function DataFilter() {
   }, []);
 
   return (
-    <div>
+    <div className={ styles.background } style={ { backgroundImage: `url(${img})` } }>
       <Title text="Tela de filtros" />
       <SelectorCountryArea
         dataArray={ countries }
