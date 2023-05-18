@@ -1,0 +1,15 @@
+.sectionMain {
+	display: flex;
+    width: 100vw;
+    margin: 20px;
+}
+
+/* .leftBlock {
+    width: 50%;
+    border-radius: 10px;
+} */
+/* 
+.rightBlock {
+    width: 50%;
+    background-color: aquamarine;
+} */
