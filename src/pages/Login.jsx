@@ -15,7 +15,8 @@ function Login() {
     localStorage.setItem('token', JSON.stringify(tokenToLocalStorage));
   };
 
-  const LOGIN_ENDPOINT = 'status';
+  // const LOGIN_ENDPOINT = 'status';
+  const LOGIN_ENDPOINT = 'https://v3.football.api-sports.io/status';
 
   const login = async () => {
     const responseAuth = await reqApiSports(LOGIN_ENDPOINT, token);
