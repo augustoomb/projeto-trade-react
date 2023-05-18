@@ -4,7 +4,6 @@ import { reqApiSports } from '../services/apiSports';
 import Title from '../components/Title';
 import Button from '../components/Button';
 import SpanErrors from '../components/SpanErrors';
-// import InputLogin from '../components/InputLogin';
 
 function Login() {
   const [token, setToken] = useState('');
@@ -15,7 +14,6 @@ function Login() {
     localStorage.setItem('token', JSON.stringify(tokenToLocalStorage));
   };
 
-  // const LOGIN_ENDPOINT = 'status';
   const LOGIN_ENDPOINT = 'https://v3.football.api-sports.io/status';
 
   const login = async () => {
@@ -43,7 +41,6 @@ function Login() {
         placeholder="Digite sua key"
         type="text"
         value={ token }
-        // onChange={ ({ target }) => setToken(target.value) }
         onChange={ ({ target }) => onChangeInput(target.value) }
       />
 

@@ -13,7 +13,6 @@ function SpanErrors(props) {
         )
       }
     </div>
-    // <span>Error</span>
   );
 }
 

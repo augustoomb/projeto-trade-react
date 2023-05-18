@@ -8,17 +8,12 @@ function SelectorTeamArea(props) {
     { value: item.team.id, label: item.team.name }
   ));
 
-  // const changeSeasonYear = (event) => {
-  //   setSelectedSeasonYear(event.value);
-  // };
-
   return (
     <>
       <h2>{ text }</h2>
       <Select
         isDisabled={ dataArray.length === 0 }
         options={ mountOptions() }
-        // onChange={ changeSeasonYear }
       />
     </>
   );

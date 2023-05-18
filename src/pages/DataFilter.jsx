@@ -17,13 +17,9 @@ function DataFilter() {
   const [selectedSeasonYear, setSelectedSeasonYear] = useState('');
   const [selectedLeagueId, setSelectedLeagueId] = useState('');
 
-  // const COUNTRY_ENDPOINT = 'countries';
   const COUNTRY_ENDPOINT = 'https://v3.football.api-sports.io/countries';
-  // const SEASON_ENDPOINT = 'leagues/seasons';
   const SEASON_ENDPOINT = 'https://v3.football.api-sports.io/leagues/seasons';
-  // const LEAGUES_ENDPOINT = 'leagues';
   const LEAGUES_ENDPOINT = `https://v3.football.api-sports.io/leagues?country=${selectedCountryName}`;
-  // const TEAMS_ENDPOINT = 'teams';
   const TEAMS_ENDPOINT = `https://v3.football.api-sports.io/teams?league=${selectedLeagueId}&season=${selectedSeasonYear}`;
 
   const requestCountries = async () => {
@@ -44,11 +40,6 @@ function DataFilter() {
 
   const requestLeagues = async () => {
     const token = getTokenInLocalStorage();
-    // const dataLeagues = await reqApiSports(
-    //   LEAGUES_ENDPOINT,
-    //   JSON.parse(token),
-    //   selectedCountryName,
-    // );
     const dataLeagues = await reqApiSports(LEAGUES_ENDPOINT, JSON.parse(token));
     if (dataLeagues.data?.results) {
       setLeagues(dataLeagues.data.response);
@@ -57,12 +48,6 @@ function DataFilter() {
 
   const requestTeams = async () => {
     const token = getTokenInLocalStorage();
-    // const dataTeams = await reqApiSports(
-    //   TEAMS_ENDPOINT,
-    //   JSON.parse(token),
-    //   { selectedLeagueId,
-    //     selectedSeasonYear },
-    // );
     const dataTeams = await reqApiSports(TEAMS_ENDPOINT, JSON.parse(token));
     if (dataTeams.data?.results) {
       setTeams(dataTeams.data.response);
