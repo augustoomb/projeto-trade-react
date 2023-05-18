@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import styles from '../styles/SelectorTeamArea.module.css';
 
 function SelectorTeamArea(props) {
   const { dataArray, text, setSelectedTeamId } = props;
@@ -13,14 +14,14 @@ function SelectorTeamArea(props) {
   };
 
   return (
-    <>
+    <section className={ styles.selectorTeamArea }>
       <h2>{ text }</h2>
       <Select
         isDisabled={ dataArray.length === 0 }
         options={ mountOptions() }
         onChange={ changeTeamId }
       />
-    </>
+    </section>
   );
 }
 
