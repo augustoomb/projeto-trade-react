@@ -30,7 +30,6 @@ SelectorTeamArea.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   dataArray: PropTypes.array.isRequired,
   text: PropTypes.string.isRequired,
-  // setSelectedSeasonYear: PropTypes.func.isRequired,
 };
 
 // Fonte: https://react-select.com/home
