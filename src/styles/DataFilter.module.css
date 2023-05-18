@@ -1,0 +1,6 @@
+.background {
+    /* filter: brightness(0.25) opacity(0.75); */
+    width: 100vw;
+    color: white;
+    padding: 20px;
+}
