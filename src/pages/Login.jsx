@@ -21,12 +21,17 @@ function Login() {
     const responseAuth = await reqApiSports(LOGIN_ENDPOINT, token);
 
     if (Object.keys(responseAuth.data?.errors).length > 0 || responseAuth.error) {
-      setErrors(responseAuth.data.errors);
+      setErrors(JSON.stringify(responseAuth.data?.errors));
       return false;
     }
 
     saveTokenOnLocalStorage(token);
     navigate({ pathname: '/datafilter' });
+  };
+
+  const onChangeInput = (value) => {
+    setToken(value);
+    setErrors(undefined);
   };
 
   return (
@@ -37,7 +42,8 @@ function Login() {
         placeholder="Digite sua key"
         type="text"
         value={ token }
-        onChange={ ({ target }) => setToken(target.value) }
+        // onChange={ ({ target }) => setToken(target.value) }
+        onChange={ ({ target }) => onChangeInput(target.value) }
       />
 
       <Button text="Login" onClick={ login } />
