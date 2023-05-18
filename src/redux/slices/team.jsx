@@ -1,19 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  teamInfo: {},
+  teamId: '',
 };
 
 export const teamSlice = createSlice({
   name: 'team',
   initialState,
   reducers: {
-    setTeamInfo: (state, action) => {
-      state.teamInfo = action.payload.teamInfo;
+    setTeamId: (state, action) => {
+      state.teamId = action.payload.teamId;
     },
   },
 });
 
-export const { setTeamInfo } = teamSlice.actions;
+export const { setTeamId } = teamSlice.actions;
 
 export default teamSlice.reducer;
