@@ -58,23 +58,19 @@ function DataFilter() {
       { selectedLeagueId,
         selectedSeasonYear },
     );
-    console.log(dataTeams);
     if (dataTeams.data?.results) {
       setTeams(dataTeams.data.response);
-      // console.log(dataTeams.data.response);
     }
   };
 
   useEffect(() => {
     if (selectedCountryName !== '') {
-      console.log('entrou');
       requestLeagues();
     }
   }, [selectedCountryName]);
 
   useEffect(() => {
-    if (selectedLeagueId !== '') {
-      console.log('entrou2');
+    if (selectedLeagueId !== '' && selectedSeasonYear !== '') {
       requestTeams();
     }
   }, [selectedLeagueId, selectedSeasonYear]);
