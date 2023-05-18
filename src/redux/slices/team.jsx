@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  teamId: '',
+  selectedTeamId: '',
 };
 
 export const teamSlice = createSlice({
@@ -9,7 +9,7 @@ export const teamSlice = createSlice({
   initialState,
   reducers: {
     setTeamId: (state, action) => {
-      state.teamId = action.payload.teamId;
+      state.selectedTeamId = action.payload.selectedTeamId;
     },
   },
 });
