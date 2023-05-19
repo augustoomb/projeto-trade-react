@@ -50,3 +50,23 @@ Para rodar os testes, execute:
 
 ## Bonus
 
+Como a API tem limite de uso é altamente recomendável utilizar um mock. Pensando nisso, foi configurado um mock nesta aplicação, que se encontra em:
+
+### `src/mock/mockApi.json`
+
+Para utilizar é necessário alterar algumas linhas nos arquivos: src/pages/Login.jsx, src/pages/DataFilter.jsx, src/pages/TeamData.jsx. As linhas estão comentadas nos respectivos arquivos. Basta retirar o cometário das linhas e ativar as linhas correspondentes exatamente acima das linhas comentadas.
+
+Além disso é necessário utilizar a biblioteca json-server; não é necessário instalá-la, visto que podemos rodar utilizando o npx:
+
+### `npx json-server ./src/mock/mockApi.json --port 3001`
+
+Feito isso, pode-se utilizar a vontade.
+
+OBS1: Lembre de utilizar a aplicação no modo normal(sem mock) pelo menos uma vez
+OBS2: Independente das escolhas feitas nas respectivas telas da aplicação, os dados selecionados serão sempre:
+-> time: Flamengo
+-> país: Brazil
+-> competição: Serie A
+-> temporada: 2022
+
+Isso é necessário para termos um arquivo mock com um tamanho utilizável.
