@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { reqApiSportsMock } from '../services/apiSports';
 import getTokenInLocalStorage from '../utils/localStorage';
 import styles from '../styles/TeamData.module.css';
+import BarChart from '../components/Chart';
+// import img from '../images/background.jpg';
 
 function TeamData() {
   const selectedTeamId = useSelector(({ team }) => (team.selectedTeamId));
@@ -87,6 +89,35 @@ function TeamData() {
               {' vezes'}
             </p>
           </div>
+        ) : (null)
+      }
+      <h2>Resultados</h2>
+      {
+        teamStatistics?.fixtures ? (
+          <div>
+            <p>
+              Total de jogos: &nbsp;
+              <span>{ teamStatistics.fixtures.played.total }</span>
+            </p>
+            <p>
+              Total de vitórias: &nbsp;
+              <span>{ teamStatistics.fixtures.wins.total }</span>
+            </p>
+            <p>
+              Total de derrotas: &nbsp;
+              <span>{ teamStatistics.fixtures.draws.total }</span>
+            </p>
+            <p>
+              Total de empates: &nbsp;
+              <span>{ teamStatistics.fixtures.loses.total }</span>
+            </p>
+          </div>
+        ) : (null)
+      }
+      <h2>Gols marcados por tempo de jogo</h2>
+      {
+        teamStatistics?.goals ? (
+          <BarChart goals={ teamStatistics.goals } />
         ) : (null)
       }
     </section>
