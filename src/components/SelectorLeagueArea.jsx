@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import styles from '../styles/SelectorLeagueArea.module.css';
+import SecondaryTitle from './SecondaryTitle';
 
 function SelectorLeagueArea(props) {
   const { dataArray, text, setSelectedLeagueId } = props;
@@ -15,7 +16,8 @@ function SelectorLeagueArea(props) {
 
   return (
     <section className={ styles.selectorLeagueArea }>
-      <h2>{ text }</h2>
+      {/* <h2>{ text }</h2> */}
+      <SecondaryTitle text={ text } />
       <Select
         options={ mountOptions() }
         isDisabled={ dataArray.length === 0 }

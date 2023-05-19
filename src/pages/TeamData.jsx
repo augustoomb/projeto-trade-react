@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 // import { reqApiSports } from '../services/apiSports';
+import Title from '../components/Title';
 import { reqApiSportsMock } from '../services/apiSports';
 import getTokenInLocalStorage from '../utils/localStorage';
 import styles from '../styles/TeamData.module.css';
 import BarChart from '../components/Chart';
+import SecondaryTitle from '../components/SecondaryTitle';
 // import img from '../images/background.jpg';
 
 function TeamData() {
@@ -49,8 +51,9 @@ function TeamData() {
 
   return (
     <section className={ styles.section }>
-      <h1>Informações sobre o time selecionado</h1>
-      <h2>Jogadores</h2>
+      <Title text="Informações sobre o time selecionado" />
+      {/* <h2>Jogadores</h2> */}
+      <SecondaryTitle text="Jogadores" />
       {
         players?.length > 0 ? (
           <div className={ styles.cards }>
@@ -75,7 +78,8 @@ function TeamData() {
           </div>
         ) : (null)
       }
-      <h2>Formação mais usada</h2>
+      {/* <h2>Formação mais usada</h2> */}
+      <SecondaryTitle text="Formação mais usada" />
       {
         teamStatistics?.lineups ? (
           <div>
@@ -91,7 +95,7 @@ function TeamData() {
           </div>
         ) : (null)
       }
-      <h2>Resultados</h2>
+      <SecondaryTitle text="Resultados" />
       {
         teamStatistics?.fixtures ? (
           <div>
@@ -114,7 +118,7 @@ function TeamData() {
           </div>
         ) : (null)
       }
-      <h2>Gols marcados por tempo de jogo</h2>
+      <SecondaryTitle text="Gols marcados por tempo de jogo" />
       {
         teamStatistics?.goals ? (
           <BarChart goals={ teamStatistics.goals } />

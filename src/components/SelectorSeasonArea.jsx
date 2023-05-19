@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import styles from '../styles/SelectorSeasonArea.module.css';
+import SecondaryTitle from './SecondaryTitle';
 
 function SelectorSeasonArea(props) {
   const { dataArray, text, setSelectedSeasonYear } = props;
@@ -15,7 +16,8 @@ function SelectorSeasonArea(props) {
 
   return (
     <section className={ styles.selectorSeasonArea }>
-      <h2>{ text }</h2>
+      {/* <h2>{ text }</h2> */}
+      <SecondaryTitle text={ text } />
       <Select
         isDisabled={ dataArray.length === 0 }
         options={ mountOptions() }

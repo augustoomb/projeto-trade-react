@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Select from 'react-select';
 import styles from '../styles/SelectorCountryArea.module.css';
+import SecondaryTitle from './SecondaryTitle';
 
 function SelectorCountryArea(props) {
   const { dataArray, text, setSelectedCountryName } = props;
@@ -15,7 +16,8 @@ function SelectorCountryArea(props) {
 
   return (
     <section className={ styles.selectorCountryArea }>
-      <h2>{ text }</h2>
+      {/* <h2>{ text }</h2> */}
+      <SecondaryTitle text={ text } />
       <Select
         isDisabled={ dataArray.length === 0 }
         options={ mountOptions() }
