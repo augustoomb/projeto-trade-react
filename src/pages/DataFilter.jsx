@@ -11,7 +11,7 @@ import SelectorLeagueArea from '../components/SelectorLeagueArea';
 import SelectorTeamArea from '../components/SelectorTeamArea';
 import { setSelectedTeam } from '../redux/slices/team';
 import styles from '../styles/DataFilter.module.css';
-import img from '../images/background.jpg';
+// import img from '../images/background.jpg';
 
 function DataFilter() {
   const [countries, setCountries] = useState([]);
@@ -98,7 +98,8 @@ function DataFilter() {
   }, []);
 
   return (
-    <div className={ styles.background } style={ { backgroundImage: `url(${img})` } }>
+    // <div className={ styles.background } style={ { backgroundImage: `url(${img})` } }>
+    <div className={ styles.background }>
       <Title text="Tela de filtros" />
       <SelectorCountryArea
         dataArray={ countries }
