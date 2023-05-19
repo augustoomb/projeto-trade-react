@@ -8,11 +8,16 @@ import styles from '../styles/TeamData.module.css';
 function TeamData() {
   const selectedTeamId = useSelector(({ team }) => (team.selectedTeamId));
   const selectedSeasonYear = useSelector(({ team }) => (team.selectedSeasonYear));
+  const selectedLeagueId = useSelector(({ team }) => (team.selectedLeagueId));
 
   const [players, setPlayers] = useState([]);
+  const [teamStatistics, setTeamStatistics] = useState([]);
 
   // const PLAYERS_ENDPOINT = `https://v3.football.api-sports.io/players?team=${selectedTeamId}&season=${selectedSeasonYear}`;
   const PLAYERS_ENDPOINT = 'http://localhost:3001/players';
+
+  // const TEAM_STATISTICS_ENDPOINT = `https://v3.football.api-sports.io/teams/statistics?team=${selectedTeamId}&season=${selectedSeasonYear}&league=${selectedLeagueId}`;
+  const TEAM_STATISTICS_ENDPOINT = 'http://localhost:3001/teamstatistics';
 
   const requestPlayers = async () => {
     const token = getTokenInLocalStorage();
@@ -23,11 +28,22 @@ function TeamData() {
     }
   };
 
-  useEffect(() => {
-    if (selectedTeamId !== '' && selectedSeasonYear !== '') {
-      requestPlayers();
+  const requestTeamStatistics = async () => {
+    const token = getTokenInLocalStorage();
+    // const dataTeamStatistics = await reqApiSports(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
+    const dataTeamStatistics = await
+    reqApiSportsMock(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
+    if (dataTeamStatistics.data?.results) {
+      setTeamStatistics(dataTeamStatistics.data.response);
     }
-  }, [selectedTeamId, selectedSeasonYear]);
+  };
+
+  useEffect(() => {
+    if (selectedTeamId !== '' && selectedSeasonYear !== '' && selectedLeagueId !== '') {
+      requestPlayers();
+      requestTeamStatistics();
+    }
+  }, [selectedTeamId, selectedSeasonYear, selectedLeagueId]);
 
   return (
     <section className={ styles.section }>
@@ -52,9 +68,24 @@ function TeamData() {
                     <span>{ item.player.nationality }</span>
                   </p>
                 </div>
-                // <p key={ index }>Teste</p>
               ))
             }
+          </div>
+        ) : (null)
+      }
+      <h2>Formação mais usada</h2>
+      {
+        teamStatistics?.lineups ? (
+          <div>
+            <p>
+              Formação: &nbsp;
+              <span>{ teamStatistics.lineups[0].formation }</span>
+            </p>
+            <p>
+              Ocorrências: &nbsp;
+              <span>{ teamStatistics.lineups[0].played }</span>
+              {' vezes'}
+            </p>
           </div>
         ) : (null)
       }
