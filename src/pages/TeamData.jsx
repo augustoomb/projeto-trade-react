@@ -1,13 +1,12 @@
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
-// import { reqApiSports } from '../services/apiSports';
+import { reqApiSports } from '../services/apiSports';
+// import { reqApiSportsMock } from '../services/apiSports';
 import Title from '../components/Title';
-import { reqApiSportsMock } from '../services/apiSports';
 import getTokenInLocalStorage from '../utils/localStorage';
 import styles from '../styles/TeamData.module.css';
 import BarChart from '../components/Chart';
 import SecondaryTitle from '../components/SecondaryTitle';
-// import img from '../images/background.jpg';
 
 function TeamData() {
   const selectedTeamId = useSelector(({ team }) => (team.selectedTeamId));
@@ -17,16 +16,18 @@ function TeamData() {
   const [players, setPlayers] = useState([]);
   const [teamStatistics, setTeamStatistics] = useState([]);
 
-  // const PLAYERS_ENDPOINT = `https://v3.football.api-sports.io/players?team=${selectedTeamId}&season=${selectedSeasonYear}`;
-  const PLAYERS_ENDPOINT = 'http://localhost:3001/players';
+  const PLAYERS_ENDPOINT = `https://v3.football.api-sports.io/players?team=${selectedTeamId}&season=${selectedSeasonYear}`;
+  // const PLAYERS_ENDPOINT = 'http://localhost:3001/players';
 
-  // const TEAM_STATISTICS_ENDPOINT = `https://v3.football.api-sports.io/teams/statistics?team=${selectedTeamId}&season=${selectedSeasonYear}&league=${selectedLeagueId}`;
-  const TEAM_STATISTICS_ENDPOINT = 'http://localhost:3001/teamstatistics';
+  const TEAM_STATISTICS_ENDPOINT = `https://v3.football.api-sports.io/teams/statistics?team=${selectedTeamId}&season=${selectedSeasonYear}&league=${selectedLeagueId}`;
+  // const TEAM_STATISTICS_ENDPOINT = 'http://localhost:3001/teamstatistics';
 
   const requestPlayers = async () => {
     const token = getTokenInLocalStorage();
-    // const dataPlayers = await reqApiSports(COUNTRY_ENDPOINT, JSON.parse(token));
-    const dataPlayers = await reqApiSportsMock(PLAYERS_ENDPOINT, JSON.parse(token));
+
+    const dataPlayers = await reqApiSports(PLAYERS_ENDPOINT, JSON.parse(token));
+    // const dataPlayers = await reqApiSportsMock(PLAYERS_ENDPOINT, JSON.parse(token));
+
     if (dataPlayers.data?.results) {
       setPlayers(dataPlayers.data.response);
     }
@@ -34,9 +35,12 @@ function TeamData() {
 
   const requestTeamStatistics = async () => {
     const token = getTokenInLocalStorage();
-    // const dataTeamStatistics = await reqApiSports(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
     const dataTeamStatistics = await
-    reqApiSportsMock(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
+
+    reqApiSports(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
+    // const dataTeamStatistics = await
+    // reqApiSportsMock(TEAM_STATISTICS_ENDPOINT, JSON.parse(token));
+
     if (dataTeamStatistics.data?.results) {
       setTeamStatistics(dataTeamStatistics.data.response);
     }
@@ -52,7 +56,6 @@ function TeamData() {
   return (
     <section className={ styles.section }>
       <Title text="Informações sobre o time selecionado" />
-      {/* <h2>Jogadores</h2> */}
       <SecondaryTitle text="Jogadores" />
       {
         players?.length > 0 ? (
@@ -78,7 +81,6 @@ function TeamData() {
           </div>
         ) : (null)
       }
-      {/* <h2>Formação mais usada</h2> */}
       <SecondaryTitle text="Formação mais usada" />
       {
         teamStatistics?.lineups ? (
