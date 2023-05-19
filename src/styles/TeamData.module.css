@@ -1,15 +1,12 @@
 .section {
     color: black;
-    /* background-image: linear-gradient(to bottom,#769164, #87A672); */
-    height: 2000px;
-}
-
-h1, h2 {
-    text-align: center;
+    width: 100vw;
+    padding: 20px;
 }
 
 h2 {
-    color: black;
+    color: #49613D;
+    font-weight: bold;
 }
 
 .cards {
@@ -17,11 +14,12 @@ h2 {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 .cardPlayer {
-    border: 1px solid black;
+    border: transparent;
+    border-radius: 8px;
     height: 150px;
     margin: 5px;
     width: 200px;
@@ -29,4 +27,5 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: #81986e48;
 }
