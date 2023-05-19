@@ -87,11 +87,11 @@ function TeamData() {
           <div>
             <p>
               Formação: &nbsp;
-              <span>{ teamStatistics.lineups[0].formation }</span>
+              <span>{ teamStatistics?.lineups[0].formation }</span>
             </p>
             <p>
               Ocorrências: &nbsp;
-              <span>{ teamStatistics.lineups[0].played }</span>
+              <span>{ teamStatistics?.lineups[0].played }</span>
               {' vezes'}
             </p>
           </div>
@@ -103,19 +103,19 @@ function TeamData() {
           <div>
             <p>
               Total de jogos: &nbsp;
-              <span>{ teamStatistics.fixtures.played.total }</span>
+              <span>{ teamStatistics?.fixtures.played.total }</span>
             </p>
             <p>
               Total de vitórias: &nbsp;
-              <span>{ teamStatistics.fixtures.wins.total }</span>
+              <span>{ teamStatistics?.fixtures.wins.total }</span>
             </p>
             <p>
               Total de derrotas: &nbsp;
-              <span>{ teamStatistics.fixtures.draws.total }</span>
+              <span>{ teamStatistics?.fixtures.draws.total }</span>
             </p>
             <p>
               Total de empates: &nbsp;
-              <span>{ teamStatistics.fixtures.loses.total }</span>
+              <span>{ teamStatistics?.fixtures.loses.total }</span>
             </p>
           </div>
         ) : (null)
@@ -123,7 +123,7 @@ function TeamData() {
       <SecondaryTitle text="Gols marcados por tempo de jogo" />
       {
         teamStatistics?.goals ? (
-          <BarChart goals={ teamStatistics.goals } />
+          <BarChart goals={ teamStatistics?.goals } />
         ) : (null)
       }
     </section>
