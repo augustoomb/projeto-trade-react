@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   selectedTeamId: '',
   selectedSeasonYear: '',
+  selectedLeagueId: '',
 };
 
 export const teamSlice = createSlice({
@@ -12,6 +13,7 @@ export const teamSlice = createSlice({
     setSelectedTeam: (state, action) => {
       state.selectedTeamId = action.payload.selectedTeamId;
       state.selectedSeasonYear = action.payload.selectedSeasonYear;
+      state.selectedLeagueId = action.payload.selectedLeagueId;
     },
   },
 });
