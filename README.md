@@ -27,12 +27,26 @@ Caso o container já tenha sido criado mas estiver parado:
 ### `docker start container-projeto-trade-react`
 
 Acesse o terminal do container em execução:
+
 ### `docker exec -it container-projeto-trade-react sh`
 
 Caso seja o primeiro acesso ao container, instale as dependências:
+
 ### `npm i`
 
 Rode a aplicação no terminal do container
+
 ### `npm start`
 
 Acesse a aplicação pelo endereço mostrado
+
+## Testes
+
+Para rodar os testes, execute:
+
+### `npm test`
+
+
+
+## Bonus
+
