@@ -1,3 +1,9 @@
+.section {
+    color: black;
+    /* background-image: linear-gradient(to bottom,#769164, #87A672); */
+    height: 2000px;
+}
+
 h1, h2 {
     text-align: center;
 }

@@ -1,6 +1,11 @@
 .background {
     /* filter: brightness(0.25) opacity(0.75); */
     width: 100vw;
-    color: white;
+    /* color: rgb(255, 255, 255); */
     padding: 20px;
+    /* background-image: linear-gradient(to bottom,#769164, #87A672); */
+}
+
+h2 {
+    color: black;
 }
