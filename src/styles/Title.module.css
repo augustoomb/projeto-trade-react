@@ -1,7 +1,10 @@
-.titleArea {
+/* .titleArea {
     
-}
+} */
 
 .titleText {
-    
+    font-weight: bold;
+    color: #49613D;
+    font-size: 2rem;
+    text-align: center;
 }
