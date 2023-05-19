@@ -9,6 +9,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import styles from '../styles/Chart.module.css';
 
 ChartJS.register(
   CategoryScale,
@@ -73,7 +74,12 @@ function BarChart(props) {
     ],
   };
 
-  return <Bar options={ options } data={ data } />;
+  return (
+    <div className={ styles.chartArea }>
+      <Bar options={ options } data={ data } />
+    </div>
+  );
+  // return <Bar options={ options } data={ data } />;
 }
 
 export default BarChart;
