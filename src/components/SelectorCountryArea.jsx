@@ -16,7 +16,6 @@ function SelectorCountryArea(props) {
 
   return (
     <section className={ styles.selectorCountryArea }>
-      {/* <h2>{ text }</h2> */}
       <SecondaryTitle text={ text } />
       <Select
         isDisabled={ dataArray.length === 0 }
@@ -35,5 +34,3 @@ SelectorCountryArea.propTypes = {
   text: PropTypes.string.isRequired,
   setSelectedCountryName: PropTypes.func.isRequired,
 };
-
-// Fonte: https://react-select.com/home

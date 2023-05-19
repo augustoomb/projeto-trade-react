@@ -1,10 +1,8 @@
 .rightBlock {
     width: 50%;
-    /* background-color: aquamarine; */
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 100vh; */
 }
 
 .rightBlockContent {
@@ -14,11 +12,7 @@
     justify-content: space-between;
     height: 300px;
     width: 80%;
-    /* height: 100vh; */
-    /* border: 1px solid #35331d; */
     border-radius: 5px;
-    /* align-items: center; */
-    /* justify-content: center; */
 }
 
 .title {
@@ -32,8 +26,6 @@
     padding: 10px;
     border-radius: 5px;
     border: 2px solid #49613D;
-    /* background-color: #49613D */
-    /* color: #35331d; */
 }
 
 .input:focus {    

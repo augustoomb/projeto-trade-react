@@ -79,7 +79,6 @@ function BarChart(props) {
       <Bar options={ options } data={ data } />
     </div>
   );
-  // return <Bar options={ options } data={ data } />;
 }
 
 export default BarChart;

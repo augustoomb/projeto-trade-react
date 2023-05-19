@@ -16,7 +16,6 @@ function SelectorTeamArea(props) {
 
   return (
     <section className={ styles.selectorTeamArea }>
-      {/* <h2>{ text }</h2> */}
       <SecondaryTitle text={ text } />
       <Select
         isDisabled={ dataArray.length === 0 }
@@ -35,5 +34,3 @@ SelectorTeamArea.propTypes = {
   text: PropTypes.string.isRequired,
   setSelectedTeamId: PropTypes.func.isRequired,
 };
-
-// Fonte: https://react-select.com/home

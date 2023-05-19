@@ -16,7 +16,6 @@ function SelectorLeagueArea(props) {
 
   return (
     <section className={ styles.selectorLeagueArea }>
-      {/* <h2>{ text }</h2> */}
       <SecondaryTitle text={ text } />
       <Select
         options={ mountOptions() }

@@ -6,7 +6,6 @@ const reqApiSports = async (endpoint, token) => {
     const response = await axios({
       method: 'GET',
       mode: 'no-cors',
-      // url: url(),
       url: endpoint,
       headers: {
         'x-rapidapi-key': token,
@@ -14,7 +13,6 @@ const reqApiSports = async (endpoint, token) => {
       },
     });
     return (response);
-    // console.log('API desativada');
   } catch (error) {
     return ({ error });
   }
@@ -24,8 +22,6 @@ const reqApiSportsMock = async (endpoint, _token) => {
   try {
     const response = await axios({
       method: 'GET',
-      // mode: 'no-cors',
-      // url: url(),
       url: endpoint,
     });
     return (response);
