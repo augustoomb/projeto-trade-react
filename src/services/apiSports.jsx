@@ -20,4 +20,18 @@ const reqApiSports = async (endpoint, token) => {
   }
 };
 
-export { reqApiSports };
+const reqApiSportsMock = async (endpoint, _token) => {
+  try {
+    const response = await axios({
+      method: 'GET',
+      // mode: 'no-cors',
+      // url: url(),
+      url: endpoint,
+    });
+    return (response);
+  } catch (error) {
+    return ({ error });
+  }
+};
+
+export { reqApiSports, reqApiSportsMock };

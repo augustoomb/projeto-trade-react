@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { reqApiSports } from '../services/apiSports';
-// import Title from '../components/Title';
-// import Button from '../components/Button';
-// import SpanErrors from '../components/SpanErrors';
+// import { reqApiSports } from '../services/apiSports';
+import { reqApiSportsMock } from '../services/apiSports';
 import styles from '../styles/Login.module.css';
 import LoginLeftBlock from '../components/LoginLeftBlock';
 import LoginRightBlock from '../components/LoginRightBlock';
-// import backgroundLeft from '../images/background-left-block.png';
 
 function Login() {
   const [token, setToken] = useState('');
@@ -18,10 +15,12 @@ function Login() {
     localStorage.setItem('token', JSON.stringify(tokenToLocalStorage));
   };
 
-  const LOGIN_ENDPOINT = 'https://v3.football.api-sports.io/status';
+  // const LOGIN_ENDPOINT = 'https://v3.football.api-sports.io/status';
+  const LOGIN_ENDPOINT = 'http://localhost:3001/status';
 
   const login = async () => {
-    const responseAuth = await reqApiSports(LOGIN_ENDPOINT, token);
+    // constresponseAuth = await reqApiSports(LOGIN_ENDPOINT, token);
+    const responseAuth = await reqApiSportsMock(LOGIN_ENDPOINT, token);
 
     if (Object.keys(responseAuth.data?.errors).length > 0 || responseAuth.error) {
       setErrors(JSON.stringify(responseAuth.data?.errors));
@@ -40,26 +39,6 @@ function Login() {
   return (
     <section className={ styles.sectionMain }>
       <LoginLeftBlock />
-      {/* <div className={ styles.rightBlock }>
-        <Title text="Login" />
-
-        <input
-          placeholder="Digite sua key"
-          type="text"
-          value={ token }
-          onChange={ ({ target }) => onChangeInput(target.value) }
-        />
-
-        <Button text="Login" onClick={ login } />
-
-        <LoginRightBlock
-          value={ token }
-          onChange={ ({ target }) => onChangeInput(target.value) }
-          onClick={ login }
-        />
-
-        <SpanErrors text={ errors } />
-      </div> */}
       <LoginRightBlock
         value={ token }
         onChange={ ({ target }) => onChangeInput(target.value) }
