@@ -100,27 +100,29 @@ function DataFilter() {
   return (
     // <div className={ styles.background } style={ { backgroundImage: `url(${img})` } }>
     <div className={ styles.background }>
-      <Title text="Tela de filtros" />
-      <SelectorCountryArea
-        dataArray={ countries }
-        text="Escolha um país"
-        setSelectedCountryName={ setSelectedCountryName }
-      />
-      <SelectorSeasonArea
-        dataArray={ seasons }
-        text="Escolha uma temporada"
-        setSelectedSeasonYear={ setSelectedSeasonYear }
-      />
-      <SelectorLeagueArea
-        dataArray={ leagues }
-        text="Escolha uma liga"
-        setSelectedLeagueId={ setSelectedLeagueId }
-      />
-      <SelectorTeamArea
-        dataArray={ teams }
-        text="Escolha um time"
-        setSelectedTeamId={ setSelectedTeamId }
-      />
+      <div className={ styles.content }>
+        <Title text="Tela de filtros" />
+        <SelectorCountryArea
+          dataArray={ countries }
+          text="Escolha um país"
+          setSelectedCountryName={ setSelectedCountryName }
+        />
+        <SelectorSeasonArea
+          dataArray={ seasons }
+          text="Escolha uma temporada"
+          setSelectedSeasonYear={ setSelectedSeasonYear }
+        />
+        <SelectorLeagueArea
+          dataArray={ leagues }
+          text="Escolha uma liga"
+          setSelectedLeagueId={ setSelectedLeagueId }
+        />
+        <SelectorTeamArea
+          dataArray={ teams }
+          text="Escolha um time"
+          setSelectedTeamId={ setSelectedTeamId }
+        />
+      </div>
     </div>
   );
 }
