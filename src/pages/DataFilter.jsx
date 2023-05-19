@@ -86,11 +86,11 @@ function DataFilter() {
   }, [selectedLeagueId, selectedSeasonYear]);
 
   useEffect(() => {
-    if (selectedTeamId !== '') {
-      dispatch(setSelectedTeam({ selectedTeamId, selectedSeasonYear }));
+    if (selectedTeamId !== '' && selectedSeasonYear !== '' && selectedLeagueId !== '') {
+      dispatch(setSelectedTeam({ selectedTeamId, selectedSeasonYear, selectedLeagueId }));
       navigate({ pathname: '/teamdata' });
     }
-  }, [selectedTeamId]);
+  }, [selectedTeamId, selectedSeasonYear, selectedLeagueId]);
 
   useEffect(() => {
     requestCountries();
